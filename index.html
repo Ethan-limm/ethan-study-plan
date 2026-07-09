@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ethan — A-Level Prelim Run-In</title>
+<meta name="description" content="A 39-day, 156-hour study plan reverse-engineered from the 18 Aug prelim date. Public progress tracker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090b; --card:#101116; --card2:#15161c; --line:#22242c; --line2:#2c2f39;
+  --fg:#e8eaed; --dim:#8b8f9a; --dim2:#5e626c;
+  --ok:#5fd3a8; --warn:#e8c65f; --bad:#e8705f;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font:400 15px/1.55 'Inter',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;padding:32px 20px 80px}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:inherit}
+
+/* ---------- header ---------- */
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
+  flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:28px}
+h1{font-size:22px;font-weight:600;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:13px;margin-top:5px}
+.sub .mono{font-family:var(--mono);color:var(--dim2)}
+.countdown{text-align:right;flex-shrink:0}
+.countdown .n{font-family:var(--mono);font-size:40px;font-weight:500;line-height:1;letter-spacing:-.03em}
+.countdown .l{font-size:11px;color:var(--dim2);text-transform:uppercase;letter-spacing:.12em;margin-top:7px}
+
+/* ---------- top stats ---------- */
+.stats{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:14px}
+.ring{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;position:relative}
+.ring::after{content:'';position:absolute;inset:11px;background:var(--card);border-radius:50%}
+.ring .v{position:relative;z-index:1;text-align:center}
+.ring .p{font-family:var(--mono);font-size:29px;font-weight:500;letter-spacing:-.02em}
+.ring .c{font-size:10px;color:var(--dim2);text-transform:uppercase;letter-spacing:.12em;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:22px 18px}
+.stat .k{font-size:10.5px;color:var(--dim2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.stat .v{font-family:var(--mono);font-size:21px;font-weight:500;letter-spacing:-.01em}
+.stat .v small{font-size:12px;color:var(--dim2);font-weight:400;margin-left:2px}
+
+/* ---------- status banner ---------- */
+.status{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;
+  padding:15px 20px;margin-bottom:30px;background:var(--card);font-size:14px}
+.status .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.status b{font-weight:600}
+.status .tail{margin-left:auto;color:var(--dim2);font-size:12.5px;font-family:var(--mono)}
+
+/* ---------- sections ---------- */
+h2{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim2);
+  font-weight:500;margin:36px 0 14px}
+
+/* ---------- subjects ---------- */
+.subj{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 20px;margin-bottom:9px}
+.subj .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.subj .nm{font-weight:600;font-size:15px}
+.subj .cd{font-family:var(--mono);font-size:11px;color:var(--dim2)}
+.subj .gr{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--dim)}
+.subj .gr b{color:var(--fg);font-weight:500}
+.subj .hrs{font-family:var(--mono);font-size:12px;color:var(--dim2);margin-left:14px}
+.bar{height:5px;background:#1c1e25;border-radius:3px;overflow:hidden;margin:12px 0 9px}
+.bar i{display:block;height:100%;border-radius:3px;transition:width .5s ease}
+.subj .note{font-size:12.5px;color:var(--dim);line-height:1.5}
+
+/* ---------- cut list ---------- */
+.cut{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--bad);
+  border-radius:10px;padding:18px 22px}
+.cut p{font-size:13px;color:var(--dim);margin-bottom:12px;line-height:1.6}
+.cut ul{list-style:none;font-size:13px;color:var(--dim);line-height:1.65}
+.cut li{padding-left:16px;position:relative;margin-bottom:7px}
+.cut li::before{content:'—';position:absolute;left:0;color:var(--dim2)}
+
+/* ---------- schedule ---------- */
+.wk{margin-bottom:26px}
+.wkh{display:flex;align-items:center;gap:12px;margin-bottom:9px}
+.wkh .t{font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.06em}
+.wkh .rule{flex:1;height:1px;background:var(--line)}
+.wkh .pc{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
+.day{display:grid;grid-template-columns:74px 1fr;gap:16px;background:var(--card);
+  border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin-bottom:6px}
+.day.today{border-color:var(--line2);background:var(--card2);box-shadow:inset 2px 0 0 var(--warn)}
+.day.past{opacity:.62}
+.day.done{box-shadow:inset 2px 0 0 var(--ok)}
+.dt{font-family:var(--mono);font-size:12px;color:var(--dim);line-height:1.5;padding-top:2px}
+.dt .d{color:var(--fg);font-weight:500}
+.dt .w{color:var(--dim2);font-size:11px}
+.blocks{display:flex;flex-direction:column;gap:8px;min-width:0}
+.blk{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.45}
+.cb{width:15px;height:15px;border:1.5px solid var(--line2);border-radius:4px;flex-shrink:0;
+  margin-top:2px;display:grid;place-items:center;font-size:10px;color:var(--bg)}
+.cb.on{background:var(--ok);border-color:var(--ok)}
+.cb.on::after{content:'✓';font-weight:700;line-height:1}
+.blk .tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;
+  padding:2.5px 6px;border-radius:4px;flex-shrink:0;margin-top:1px;font-weight:500}
+.blk .lb{flex:1;min-width:0}
+.blk.done .lb{color:var(--dim2);text-decoration:line-through;text-decoration-color:var(--dim2)}
+.blk .dd{font-family:var(--mono);font-size:10.5px;color:var(--ok);flex-shrink:0;margin-top:2px}
+.exam{background:linear-gradient(90deg,rgba(232,112,95,.13),transparent);border:1px solid #3a2724;
+  border-radius:10px;padding:16px 18px;display:flex;align-items:center;gap:14px;margin-top:14px}
+.exam .n{font-family:var(--mono);font-size:12px;color:var(--bad);font-weight:500}
+.exam .t{font-size:13.5px;font-weight:600}
+.exam .s{font-size:12.5px;color:var(--dim);margin-left:auto}
+
+footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--dim2);line-height:1.7}
+footer code{font-family:var(--mono);background:var(--card2);padding:1.5px 5px;border-radius:4px;color:var(--dim)}
+@media(max-width:640px){
+  body{padding:22px 14px 60px}
+  .stats{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px}
+  .grid{width:100%}
+  .day{grid-template-columns:1fr;gap:9px}
+  .dt{display:flex;gap:8px;align-items:baseline}
+  header{flex-direction:column}.countdown{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>A-Level Prelim Run-In</h1>
+      <div class="sub" id="hsub"></div>
+    </div>
+    <div class="countdown">
+      <div class="n" id="cd">—</div>
+      <div class="l" id="cdl">days to prelim p1</div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="ring" id="ring">
+      <div class="v"><div class="p" id="pct">0%</div><div class="c">complete</div></div>
+    </div>
+    <div class="grid">
+      <div class="stat"><div class="k">Hours done</div><div class="v"><span id="hd">0</span><small id="hdT"></small></div></div>
+      <div class="stat"><div class="k">Hours expected</div><div class="v" id="he">0</div></div>
+      <div class="stat"><div class="k">Delta</div><div class="v" id="dl">—</div></div>
+      <div class="stat"><div class="k">Study days left</div><div class="v" id="dleft">—</div></div>
+      <div class="stat"><div class="k">Blocks closed</div><div class="v"><span id="bd">0</span><small id="bdT"></small></div></div>
+    </div>
+  </div>
+
+  <div class="status" id="status">
+    <div class="dot"></div><div id="stxt"></div><div class="tail" id="stail"></div>
+  </div>
+
+  <h2>Subjects — hours allocated by score gap</h2>
+  <div id="subs"></div>
+
+  <h2>What this plan deliberately does not cover</h2>
+  <div class="cut">
+    <p>156 hours cannot cover a ~247-cluster syllabus. Rather than spread thin and close nothing,
+       these are cut on purpose. Prelims are a diagnostic — they will expose exactly this list, and that is the point.</p>
+    <ul id="cutlist"></ul>
+  </div>
+
+  <h2>The 39 days</h2>
+  <div id="sched"></div>
+
+  <footer>
+    Progress is hours-weighted, not task-counted — a 4-hour timed paper counts more than a 2-hour block.
+    <em>Expected</em> = hours scheduled on every day up to and including today.<br>
+    Ethan reports what he completed; boxes and completion dates are written into <code>plan.js</code> and pushed to git.
+    Anyone can fork the repo and open a PR. <span id="lu"></span>
+  </footer>
+</div>
+
+<script src="plan.js"></script>
+<script>
+(function(){
+  const P = window.PLAN, S = P.subjects, M = P.meta;
+  const today = new Date().toISOString().slice(0,10);
+
+  // ---- core numbers (hours-weighted) ----
+  let doneH=0, expH=0, totH=0, doneB=0, totB=0;
+  const perSub={};
+  for(const k in S) perSub[k]={done:0,tot:0};
+  P.days.forEach(d=>{
+    d.blocks.forEach(b=>{
+      totH+=b.hours; totB++; perSub[b.subject].tot+=b.hours;
+      if(b.done){doneH+=b.hours; doneB++; perSub[b.subject].done+=b.hours;}
+      if(d.date<=today) expH+=b.hours;
+    });
+  });
+  const pct = totH? doneH/totH : 0;
+  const delta = doneH-expH;
+  const daysLeft = P.days.filter(d=>d.date>=today).length;
+  const cdDays = Math.max(0, Math.round((new Date(M.examDay)-new Date(today))/864e5));
+
+  // ---- header ----
+  document.getElementById('hsub').innerHTML =
+    `${M.student} · ${M.studyDays} study days · ${M.dailyHours} hrs/day · ${M.totalHours} hours total
+     <span class="mono">${M.start} → ${M.lastStudyDay}</span>`;
+  document.getElementById('cd').textContent = cdDays;
+  document.getElementById('cdl').textContent = cdDays===0 ? M.examLabel+' today' : 'days to prelim p1';
+  document.getElementById('lu').textContent = 'Last updated '+M.lastUpdated+'.';
+
+  // ---- ring (same thresholds as the status banner) ----
+  const deg = Math.round(pct*360);
+  const col = delta>=-2 ? 'var(--ok)' : (delta<-12 ? 'var(--bad)' : 'var(--warn)');
+  document.getElementById('ring').style.background =
+    `conic-gradient(${col} ${deg}deg, #1c1e25 ${deg}deg)`;
+  document.getElementById('pct').textContent = Math.round(pct*100)+'%';
+  document.getElementById('hd').textContent = doneH;
+  document.getElementById('hdT').textContent = '/'+totH;
+  document.getElementById('he').textContent = expH;
+  document.getElementById('bd').textContent = doneB;
+  document.getElementById('bdT').textContent = '/'+totB;
+  document.getElementById('dleft').textContent = daysLeft;
+  const dEl=document.getElementById('dl');
+  dEl.textContent = (delta>0?'+':'')+delta+'h';
+  dEl.style.color = delta>=0?'var(--ok)':(delta<-12?'var(--bad)':'var(--warn)');
+
+  // ---- status banner ----
+  let txt, dot;
+  if(doneH===0 && expH===0){ txt='<b>Not started.</b> First block is the Biology diagnostic on '+M.start+'.'; dot='var(--dim2)'; }
+  else if(delta>=2){ txt='<b>Ahead.</b> '+delta+' hours in front of schedule.'; dot='var(--ok)'; }
+  else if(delta>=-2){ txt='<b>On track.</b> Within '+Math.abs(delta)+' hours of schedule.'; dot='var(--ok)'; }
+  else if(delta>=-12){ txt='<b>Slipping.</b> '+Math.abs(delta)+' hours behind — recoverable inside a week.'; dot='var(--warn)'; }
+  else { txt='<b>Behind.</b> '+Math.abs(delta)+' hours down. At 4 hrs/day that is '
+         +(Math.abs(delta)/4).toFixed(1)+' full days lost. Cut scope or add hours.'; dot='var(--bad)'; }
+  document.getElementById('stxt').innerHTML = txt;
+  document.getElementById('status').querySelector('.dot').style.background = dot;
+  document.getElementById('status').style.borderColor = dot==='var(--dim2)'?'var(--line)':dot;
+  document.getElementById('stail').textContent = daysLeft+' days · '+(totH-doneH)+'h remaining';
+
+  // ---- subjects ----
+  document.getElementById('subs').innerHTML = Object.entries(S).map(([k,s])=>{
+    const p = perSub[k].tot ? perSub[k].done/perSub[k].tot : 0;
+    return `<div class="subj">
+      <div class="top">
+        <span class="nm">${s.name}</span><span class="cd">${s.code}</span>
+        <span class="gr">now <b>${s.standing}</b> → target <b>${s.target}</b></span>
+        <span class="hrs">${perSub[k].done}/${s.hours}h</span>
+      </div>
+      <div class="bar"><i style="width:${(p*100).toFixed(1)}%;background:${s.colour}"></i></div>
+      <div class="note">${s.note}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('cutlist').innerHTML = P.cut.map(c=>`<li>${c}</li>`).join('');
+
+  // ---- schedule ----
+  const weeks={};
+  P.days.forEach(d=>{ (weeks[d.week] ||= []).push(d); });
+  let html='';
+  for(const w in weeks){
+    const ds=weeks[w];
+    const wh=ds.reduce((a,d)=>a+d.blocks.reduce((x,b)=>x+b.hours,0),0);
+    const wd=ds.reduce((a,d)=>a+d.blocks.reduce((x,b)=>x+(b.done?b.hours:0),0),0);
+    html+=`<div class="wk"><div class="wkh">
+      <span class="t">WEEK ${w}</span><span class="rule"></span>
+      <span class="pc">${wd}/${wh}h</span></div>`;
+    ds.forEach(d=>{
+      const allDone=d.blocks.every(b=>b.done);
+      const cls=[d.date===today?'today':'', d.date<today?'past':'', allDone?'done':''].filter(Boolean).join(' ');
+      const [,mo,dy]=d.date.split('-');
+      html+=`<div class="day ${cls}">
+        <div class="dt"><span class="d">${dy} ${['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'][+mo]}</span>
+          <span class="w">${d.weekday}</span></div>
+        <div class="blocks">${d.blocks.map(b=>{
+          const s=S[b.subject];
+          return `<div class="blk ${b.done?'done':''}">
+            <span class="cb ${b.done?'on':''}"></span>
+            <span class="tag" style="background:${s.colour}1f;color:${s.colour}">${b.subject}</span>
+            <span class="lb">${b.label}</span>
+            ${b.doneDate?`<span class="dd">${b.doneDate}</span>`:''}
+          </div>`;}).join('')}</div>
+      </div>`;
+    });
+    html+='</div>';
+  }
+  html+=`<div class="exam"><span class="n">18 AUG</span>
+    <span class="t">${M.examLabel}</span>
+    <span class="s">Prelims begin. Diagnostic — the real target is November.</span></div>`;
+  document.getElementById('sched').innerHTML=html;
+})();
+</script>
+</body>
+</html>
