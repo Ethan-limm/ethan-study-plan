@@ -2,7 +2,10 @@
 
 **12 Jul → 16 Aug 2026.** 36 study days · ~4 hrs/day · 7 days/week (no rest days) · ~26.6 hrs/week · 136.7 hours total.
 
-Live dashboard: _(add your Vercel URL here after deploying)_
+Live dashboard: **https://study-dashboard-lac-psi.vercel.app** (public, shareable).
+
+Deploy is manual via the Vercel CLI (the GitHub integration isn't connected): from this folder run
+`vercel --prod --yes`. Pushing to GitHub does **not** auto-redeploy.
 
 ## Target
 
