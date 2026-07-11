@@ -175,6 +175,21 @@ footer a{color:var(--dim)}
   .mp .body{padding-left:20px}
   .cyc .row{grid-template-columns:1fr;gap:3px}
 }
+.logday{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 17px;margin-bottom:8px}
+.logday.planned{border-left:2px solid var(--warn)}
+.logday.alldone{border-left:2px solid var(--ok)}
+.logh{display:flex;align-items:center;gap:12px;margin-bottom:9px;flex-wrap:wrap}
+.logh .ld{font-family:var(--mono);font-size:12.5px;color:var(--fg)}
+.logh .lt{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;padding:2px 7px;border-radius:5px}
+.logh .lm{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim2)}
+.logi{display:flex;align-items:flex-start;gap:10px;padding:4px 0;font-size:13px}
+.logi .cb{margin-top:2px}
+.logi .lsub{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.05em;padding:2px 0;border-radius:4px;flex-shrink:0;margin-top:1px;width:54px;text-align:center}
+.logi .lmin{font-family:var(--mono);font-size:10.5px;color:var(--warn);width:38px;flex-shrink:0;margin-top:2px}
+.logi .lw{min-width:0}
+.logi.done .lw{color:var(--dim2);text-decoration:line-through;text-decoration-color:var(--dim2)}
+.lognote{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim);line-height:1.55}
+.logempty{font-size:13px;color:var(--dim2);font-style:italic;padding:4px 0}
 </style>
 </head>
 <body>
@@ -216,7 +231,7 @@ footer a{color:var(--dim)}
   <div id="map"></div>
 
   <h2>🗓 The day-by-day schedule<span class="rule"></span></h2>
-  <div class="h2sub">Rest day = Sunday. Click any day to open its blocks. The sequence matters more than the exact dates.</div>
+  <div class="h2sub">No rest days — study every day. Click any day to open its blocks. The sequence matters more than the exact dates.</div>
   <div id="sched"></div>
 
   <h2>Falling behind? The drop order<span class="rule"></span></h2>
@@ -225,8 +240,12 @@ footer a{color:var(--dim)}
     <div class="never"><b>Never drop:</b> <span id="neverlist"></span> These carry the grade.</div>
   </div>
 
+  <h2>📓 Progress log<span class="rule"></span></h2>
+  <div class="h2sub">What you actually studied, day by day, newest first. The schedule above is the plan; this is the record of what really happened.</div>
+  <div id="log"></div>
+
   <footer>
-    Progress is <b>minutes-weighted</b>, not day-counted. <em>Expected</em> = minutes scheduled on every study day up to and including today; Sundays are excluded.<br>
+    Progress is <b>minutes-weighted</b>, not day-counted. <em>Expected</em> = minutes scheduled on every study day up to and including today.<br>
     Ethan reports what he completed; boxes and completion dates are written into <code>plan.js</code> and pushed. Anyone can fork and open a PR.
     <span id="lu"></span>
   </footer>
@@ -380,6 +399,35 @@ footer a{color:var(--dim)}
 
   document.getElementById('droplist').innerHTML=P.drop.map(x=>`<li>${x}</li>`).join('');
   document.getElementById('neverlist').textContent=P.never.join(' · ')+'.';
+
+  // ---- progress log ----
+  const logEl=document.getElementById('log');
+  if(P.log && P.log.length){
+    logEl.innerHTML=P.log.map(e=>{
+      const allDone=e.items.every(i=>i.done), anyDone=e.items.some(i=>i.done);
+      const [,mo,dy]=e.date.split('-');
+      const tot=e.items.reduce((x,i)=>x+i.mins,0), dn=e.items.reduce((x,i)=>x+(i.done?i.mins:0),0);
+      const status=allDone?['done','var(--ok)','rgba(95,211,168,.15)']
+                  :anyDone?['in progress','var(--warn)','rgba(232,198,95,.15)']
+                          :['planned','var(--warn)','rgba(232,198,95,.12)'];
+      const cls='logday '+(allDone?'alldone':(anyDone?'':'planned'));
+      return `<div class="${cls}">
+        <div class="logh"><span class="ld">${e.weekday} ${+dy} ${MO[+mo]}</span>
+          <span class="lt" style="color:${status[1]};background:${status[2]}">${status[0]}</span>
+          <span class="lm">${fmt(dn)}/${fmt(tot)}h</span></div>
+        ${e.items.map(i=>{const s=S[i.subject]||{name:i.subject,colour:'#8c909b'};
+          return `<div class="logi ${i.done?'done':''}">
+            <span class="cb ${i.done?'on':''}"></span>
+            <span class="lsub" style="background:${s.colour}1f;color:${s.colour}">${s.name}</span>
+            <span class="lmin">${i.mins}m</span>
+            <span class="lw">${i.what}</span>
+          </div>`;}).join('')}
+        ${e.note?`<div class="lognote">${e.note}</div>`:''}
+      </div>`;
+    }).join('');
+  } else {
+    logEl.innerHTML='<div class="logempty">No entries yet — your first logged day will appear here.</div>';
+  }
 })();
 </script>
 </body>

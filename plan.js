@@ -2316,5 +2316,32 @@ window.PLAN = {
    34,
    36
   ]
+ ],
+ "log": [
+  {
+   "date": "2026-07-12",
+   "weekday": "Sun",
+   "items": [
+    {
+     "subject": "gp",
+     "mins": 50,
+     "what": "2-paragraph slotting practice",
+     "done": false
+    },
+    {
+     "subject": "maths",
+     "mins": 120,
+     "what": "Finish Cluster 6 — Discrete RV & Binomial",
+     "done": false
+    },
+    {
+     "subject": "csc",
+     "mins": 60,
+     "what": "Braindump knowledge gaps → save → next cluster",
+     "done": false
+    }
+   ],
+   "note": ""
+  }
  ]
 };
