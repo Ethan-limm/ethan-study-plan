@@ -2,17 +2,17 @@ window.PLAN = {
  "meta": {
   "student": "Ethan Lim",
   "title": "Six-Week Study Plan — Prelim Run",
-  "start": "2026-07-10",
+  "start": "2026-07-13",
   "end": "2026-08-20",
   "prelim": "2026-08-21",
   "prelimLabel": "Prelim begins",
-  "studyDays": 36,
+  "studyDays": 34,
   "restDay": "Sunday",
-  "totalMins": 8200,
-  "perWeekHrs": 22.8,
+  "totalMins": 7820,
+  "perWeekHrs": 23.0,
   "target": "Prelim-realistic — a solid pass (C/B), where every cluster we drill is also a permanent A-level foundation. Not chasing A's on everything.",
   "reality": "One cluster ≈ one day (study sheet → test → gap cluster → re-test). This plan drills ~25 load-bearing clusters and coverage-skims the rest. That's the design, not a shortfall.",
-  "lastUpdated": "2026-07-10",
+  "lastUpdated": "2026-07-11",
   "repo": "https://github.com/ayan-banday/Exambackcasting-a-levels"
  },
  "subjects": {
@@ -825,8 +825,8 @@ window.PLAN = {
  "days": [
   {
    "n": 1,
-   "date": "2026-07-10",
-   "weekday": "Fri",
+   "date": "2026-07-13",
+   "weekday": "Mon",
    "week": 1,
    "type": "standard",
    "subject": "maths",
@@ -868,8 +868,8 @@ window.PLAN = {
   },
   {
    "n": 2,
-   "date": "2026-07-11",
-   "weekday": "Sat",
+   "date": "2026-07-14",
+   "weekday": "Tue",
    "week": 1,
    "type": "standard",
    "subject": "maths",
@@ -911,8 +911,8 @@ window.PLAN = {
   },
   {
    "n": 3,
-   "date": "2026-07-13",
-   "weekday": "Mon",
+   "date": "2026-07-15",
+   "weekday": "Wed",
    "week": 1,
    "type": "standard",
    "subject": "chem",
@@ -954,8 +954,8 @@ window.PLAN = {
   },
   {
    "n": 4,
-   "date": "2026-07-14",
-   "weekday": "Tue",
+   "date": "2026-07-16",
+   "weekday": "Thu",
    "week": 2,
    "type": "standard",
    "subject": "maths",
@@ -997,8 +997,8 @@ window.PLAN = {
   },
   {
    "n": 5,
-   "date": "2026-07-15",
-   "weekday": "Wed",
+   "date": "2026-07-17",
+   "weekday": "Fri",
    "week": 2,
    "type": "standard",
    "subject": "csc",
@@ -1040,8 +1040,8 @@ window.PLAN = {
   },
   {
    "n": 6,
-   "date": "2026-07-16",
-   "weekday": "Thu",
+   "date": "2026-07-18",
+   "weekday": "Sat",
    "week": 2,
    "type": "standard",
    "subject": "bio",
@@ -1083,8 +1083,8 @@ window.PLAN = {
   },
   {
    "n": 7,
-   "date": "2026-07-17",
-   "weekday": "Fri",
+   "date": "2026-07-20",
+   "weekday": "Mon",
    "week": 2,
    "type": "standard",
    "subject": "chem",
@@ -1126,8 +1126,8 @@ window.PLAN = {
   },
   {
    "n": 8,
-   "date": "2026-07-18",
-   "weekday": "Sat",
+   "date": "2026-07-21",
+   "weekday": "Tue",
    "week": 2,
    "type": "standard",
    "subject": "bio",
@@ -1169,8 +1169,8 @@ window.PLAN = {
   },
   {
    "n": 9,
-   "date": "2026-07-20",
-   "weekday": "Mon",
+   "date": "2026-07-22",
+   "weekday": "Wed",
    "week": 2,
    "type": "buffer",
    "subject": "gp",
@@ -1204,8 +1204,8 @@ window.PLAN = {
   },
   {
    "n": 10,
-   "date": "2026-07-21",
-   "weekday": "Tue",
+   "date": "2026-07-23",
+   "weekday": "Thu",
    "week": 3,
    "type": "standard",
    "subject": "maths",
@@ -1247,8 +1247,8 @@ window.PLAN = {
   },
   {
    "n": 11,
-   "date": "2026-07-22",
-   "weekday": "Wed",
+   "date": "2026-07-24",
+   "weekday": "Fri",
    "week": 3,
    "type": "standard",
    "subject": "chem",
@@ -1290,8 +1290,8 @@ window.PLAN = {
   },
   {
    "n": 12,
-   "date": "2026-07-23",
-   "weekday": "Thu",
+   "date": "2026-07-25",
+   "weekday": "Sat",
    "week": 3,
    "type": "standard",
    "subject": "csc",
@@ -1333,8 +1333,8 @@ window.PLAN = {
   },
   {
    "n": 13,
-   "date": "2026-07-24",
-   "weekday": "Fri",
+   "date": "2026-07-27",
+   "weekday": "Mon",
    "week": 3,
    "type": "standard",
    "subject": "bio",
@@ -1376,8 +1376,8 @@ window.PLAN = {
   },
   {
    "n": 14,
-   "date": "2026-07-25",
-   "weekday": "Sat",
+   "date": "2026-07-28",
+   "weekday": "Tue",
    "week": 3,
    "type": "standard",
    "subject": "chem",
@@ -1419,8 +1419,8 @@ window.PLAN = {
   },
   {
    "n": 15,
-   "date": "2026-07-27",
-   "weekday": "Mon",
+   "date": "2026-07-29",
+   "weekday": "Wed",
    "week": 3,
    "type": "buffer",
    "subject": "gp",
@@ -1455,8 +1455,8 @@ window.PLAN = {
   },
   {
    "n": 16,
-   "date": "2026-07-28",
-   "weekday": "Tue",
+   "date": "2026-07-30",
+   "weekday": "Thu",
    "week": 4,
    "type": "standard",
    "subject": "maths",
@@ -1498,8 +1498,8 @@ window.PLAN = {
   },
   {
    "n": 17,
-   "date": "2026-07-29",
-   "weekday": "Wed",
+   "date": "2026-07-31",
+   "weekday": "Fri",
    "week": 4,
    "type": "standard",
    "subject": "chem",
@@ -1541,8 +1541,8 @@ window.PLAN = {
   },
   {
    "n": 18,
-   "date": "2026-07-30",
-   "weekday": "Thu",
+   "date": "2026-08-01",
+   "weekday": "Sat",
    "week": 4,
    "type": "standard",
    "subject": "bio",
@@ -1584,8 +1584,8 @@ window.PLAN = {
   },
   {
    "n": 19,
-   "date": "2026-07-31",
-   "weekday": "Fri",
+   "date": "2026-08-03",
+   "weekday": "Mon",
    "week": 4,
    "type": "standard",
    "subject": "csc",
@@ -1627,8 +1627,8 @@ window.PLAN = {
   },
   {
    "n": 20,
-   "date": "2026-08-01",
-   "weekday": "Sat",
+   "date": "2026-08-04",
+   "weekday": "Tue",
    "week": 4,
    "type": "standard",
    "subject": "chem",
@@ -1670,8 +1670,8 @@ window.PLAN = {
   },
   {
    "n": 21,
-   "date": "2026-08-03",
-   "weekday": "Mon",
+   "date": "2026-08-05",
+   "weekday": "Wed",
    "week": 4,
    "type": "buffer",
    "subject": "gp",
@@ -1706,8 +1706,8 @@ window.PLAN = {
   },
   {
    "n": 22,
-   "date": "2026-08-04",
-   "weekday": "Tue",
+   "date": "2026-08-06",
+   "weekday": "Thu",
    "week": 5,
    "type": "standard",
    "subject": "maths",
@@ -1749,8 +1749,8 @@ window.PLAN = {
   },
   {
    "n": 23,
-   "date": "2026-08-05",
-   "weekday": "Wed",
+   "date": "2026-08-07",
+   "weekday": "Fri",
    "week": 5,
    "type": "standard",
    "subject": "chem",
@@ -1792,8 +1792,8 @@ window.PLAN = {
   },
   {
    "n": 24,
-   "date": "2026-08-06",
-   "weekday": "Thu",
+   "date": "2026-08-08",
+   "weekday": "Sat",
    "week": 5,
    "type": "standard",
    "subject": "bio",
@@ -1835,8 +1835,8 @@ window.PLAN = {
   },
   {
    "n": 25,
-   "date": "2026-08-07",
-   "weekday": "Fri",
+   "date": "2026-08-10",
+   "weekday": "Mon",
    "week": 5,
    "type": "standard",
    "subject": "csc",
@@ -1878,8 +1878,8 @@ window.PLAN = {
   },
   {
    "n": 26,
-   "date": "2026-08-08",
-   "weekday": "Sat",
+   "date": "2026-08-11",
+   "weekday": "Tue",
    "week": 5,
    "type": "standard",
    "subject": "gp",
@@ -1921,8 +1921,8 @@ window.PLAN = {
   },
   {
    "n": 27,
-   "date": "2026-08-10",
-   "weekday": "Mon",
+   "date": "2026-08-12",
+   "weekday": "Wed",
    "week": 5,
    "type": "buffer",
    "subject": "gp",
@@ -1956,8 +1956,8 @@ window.PLAN = {
   },
   {
    "n": 28,
-   "date": "2026-08-11",
-   "weekday": "Tue",
+   "date": "2026-08-13",
+   "weekday": "Thu",
    "week": 6,
    "type": "paper",
    "subject": "maths",
@@ -1991,8 +1991,8 @@ window.PLAN = {
   },
   {
    "n": 29,
-   "date": "2026-08-12",
-   "weekday": "Wed",
+   "date": "2026-08-14",
+   "weekday": "Fri",
    "week": 6,
    "type": "paper",
    "subject": "chem",
@@ -2026,8 +2026,8 @@ window.PLAN = {
   },
   {
    "n": 30,
-   "date": "2026-08-13",
-   "weekday": "Thu",
+   "date": "2026-08-15",
+   "weekday": "Sat",
    "week": 6,
    "type": "paper",
    "subject": "bio",
@@ -2061,8 +2061,8 @@ window.PLAN = {
   },
   {
    "n": 31,
-   "date": "2026-08-14",
-   "weekday": "Fri",
+   "date": "2026-08-17",
+   "weekday": "Mon",
    "week": 6,
    "type": "paper",
    "subject": "csc",
@@ -2096,8 +2096,8 @@ window.PLAN = {
   },
   {
    "n": 32,
-   "date": "2026-08-15",
-   "weekday": "Sat",
+   "date": "2026-08-18",
+   "weekday": "Tue",
    "week": 6,
    "type": "paper",
    "subject": "gp",
@@ -2131,8 +2131,8 @@ window.PLAN = {
   },
   {
    "n": 33,
-   "date": "2026-08-17",
-   "weekday": "Mon",
+   "date": "2026-08-19",
+   "weekday": "Wed",
    "week": 6,
    "type": "buffer",
    "subject": "conv",
@@ -2166,8 +2166,8 @@ window.PLAN = {
   },
   {
    "n": 34,
-   "date": "2026-08-18",
-   "weekday": "Tue",
+   "date": "2026-08-20",
+   "weekday": "Thu",
    "week": 7,
    "type": "review",
    "subject": "conv",
@@ -2198,80 +2198,9 @@ window.PLAN = {
      "doneDate": null
     }
    ]
-  },
-  {
-   "n": 35,
-   "date": "2026-08-19",
-   "weekday": "Wed",
-   "week": 7,
-   "type": "review",
-   "subject": "conv",
-   "label": "Second timed paper — weakest subject",
-   "focus": "Chosen from Week 6 results. Then re-read synthesis clusters (CSC Cross-Topic, Bio Evolution/Genetics).",
-   "flag": "",
-   "mins": 230,
-   "blocks": [
-    {
-     "mins": 150,
-     "name": "Timed paper — weakest subject",
-     "desc": "",
-     "done": false,
-     "doneDate": null
-    },
-    {
-     "mins": 50,
-     "name": "Self-mark",
-     "desc": "",
-     "done": false,
-     "doneDate": null
-    },
-    {
-     "mins": 30,
-     "name": "Re-read synthesis clusters",
-     "desc": "CSC Cross-Topic · Bio Evolution/Genetics",
-     "done": false,
-     "doneDate": null
-    }
-   ]
-  },
-  {
-   "n": 36,
-   "date": "2026-08-20",
-   "weekday": "Thu",
-   "week": 7,
-   "type": "review",
-   "subject": "conv",
-   "label": "Light consolidation + recall check",
-   "focus": "Name each big topic's sub-clusters cold. Then rest before the prelim.",
-   "flag": "",
-   "mins": 150,
-   "blocks": [
-    {
-     "mins": 60,
-     "name": "Recall check",
-     "desc": "Name each big topic's sub-clusters cold",
-     "done": false,
-     "doneDate": null
-    },
-    {
-     "mins": 60,
-     "name": "Skim synthesis clusters",
-     "desc": "",
-     "done": false,
-     "doneDate": null
-    },
-    {
-     "mins": 30,
-     "name": "Logistics + rest",
-     "desc": "",
-     "done": false,
-     "doneDate": null
-    }
-   ]
   }
  ],
  "rest": [
-  "2026-07-12",
   "2026-07-19",
   "2026-07-26",
   "2026-08-02",
@@ -2321,7 +2250,7 @@ window.PLAN = {
   [
    7,
    34,
-   36
+   34
   ]
  ]
 };
