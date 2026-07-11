@@ -1,6 +1,6 @@
 # Six-Week Study Plan — Prelim Run
 
-**13 Jul → 20 Aug 2026.** 34 study days · ~4 hrs/day · 6 days/week (rest Sunday) · ~23.0 hrs/week · 130.3 hours total.
+**12 Jul → 16 Aug 2026.** 36 study days · ~4 hrs/day · 7 days/week (no rest days) · ~26.6 hrs/week · 136.7 hours total.
 
 Live dashboard: _(add your Vercel URL here after deploying)_
 
@@ -34,7 +34,7 @@ Ethan reports what he completed. Blocks get `"done": true` and a `"doneDate"` in
 Vercel redeploys automatically.
 
 Progress is **minutes-weighted**, not day-counted. `expected` = minutes scheduled on every study day up to
-and including today (Sundays excluded). `delta = done − expected`.
+and including today. `delta = done − expected`.
 
 ## Files
 
@@ -43,12 +43,10 @@ and including today (Sundays excluded). `delta = done − expected`.
 
 ## Note on dates
 
-The run now starts **Mon 13 Jul 2026**. 12 Jul is a Sunday (the rest day), so the nearest study day to a
-"12 Jul" start is Monday the 13th. The end is anchored to the fixed prelim: study ends **Thu 20 Aug**, prelim
-begins **Fri 21 Aug**. Sliding the content forward from the 13th lands the final review on prelim-eve, so the
-two original wind-down days (a second timed paper + a light consolidation) that would have fallen on/after the
-prelim are dropped. That's why this is 34 study days, not the earlier 36 — all content clusters, the full
-papers week, and the main review day are kept. Weekday labels are correct against the real 2026 calendar.
+The run starts **Sun 12 Jul 2026** and studies **every day — no rest days**. All 36 days run back-to-back, so
+the plan finishes on **Sun 16 Aug**, with **17–20 Aug free** before the prelim begins **Fri 21 Aug**. Those four
+days are open for whatever you want (extra timed papers, gap-closing, or a breather). Weekday labels are correct
+against the real 2026 calendar.
 
 ## Running locally
 
