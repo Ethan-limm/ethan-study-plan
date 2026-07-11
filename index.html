@@ -3,119 +3,177 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ethan — A-Level Prelim Run-In</title>
-<meta name="description" content="A 39-day, 156-hour study plan reverse-engineered from the 18 Aug prelim date. Public progress tracker.">
+<title>Six-Week Study Plan — Prelim Run</title>
+<meta name="description" content="10 Jul → 20 Aug 2026. 36 study days, ~25 load-bearing clusters, one cluster a day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#08090b; --card:#101116; --card2:#15161c; --line:#22242c; --line2:#2c2f39;
-  --fg:#e8eaed; --dim:#8b8f9a; --dim2:#5e626c;
+  --bg:#0a0b0d; --card:#121317; --card2:#17181e; --line:#23252d; --line2:#2f323c;
+  --fg:#e9ebee; --dim:#8c909b; --dim2:#5f636d;
   --ok:#5fd3a8; --warn:#e8c65f; --bad:#e8705f;
   --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--fg);font:400 15px/1.55 'Inter',system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased;padding:32px 20px 80px}
-.wrap{max-width:1080px;margin:0 auto}
-a{color:inherit}
+  -webkit-font-smoothing:antialiased;padding:34px 20px 90px}
+.wrap{max-width:1120px;margin:0 auto}
 
-/* ---------- header ---------- */
-header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;
-  flex-wrap:wrap;padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:28px}
-h1{font-size:22px;font-weight:600;letter-spacing:-.02em}
-.sub{color:var(--dim);font-size:13px;margin-top:5px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;
+  padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:26px}
+h1{font-size:23px;font-weight:600;letter-spacing:-.02em}
+.sub{color:var(--dim);font-size:13px;margin-top:6px}
 .sub .mono{font-family:var(--mono);color:var(--dim2)}
 .countdown{text-align:right;flex-shrink:0}
-.countdown .n{font-family:var(--mono);font-size:40px;font-weight:500;line-height:1;letter-spacing:-.03em}
-.countdown .l{font-size:11px;color:var(--dim2);text-transform:uppercase;letter-spacing:.12em;margin-top:7px}
+.countdown .n{font-family:var(--mono);font-size:42px;font-weight:500;line-height:1;letter-spacing:-.03em}
+.countdown .l{font-size:10.5px;color:var(--dim2);text-transform:uppercase;letter-spacing:.12em;margin-top:7px}
 
-/* ---------- top stats ---------- */
-.stats{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;
-  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin-bottom:14px}
-.ring{width:132px;height:132px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;position:relative}
+.callout{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+.callout .k{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--dim2);margin-bottom:6px}
+.callout p{font-size:13.5px;color:var(--dim);line-height:1.6}
+.callout p b{color:var(--fg);font-weight:500}
+
+.stats{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px 28px;margin:22px 0 12px}
+.ring{width:134px;height:134px;border-radius:50%;display:grid;place-items:center;position:relative;flex-shrink:0}
 .ring::after{content:'';position:absolute;inset:11px;background:var(--card);border-radius:50%}
 .ring .v{position:relative;z-index:1;text-align:center}
-.ring .p{font-family:var(--mono);font-size:29px;font-weight:500;letter-spacing:-.02em}
-.ring .c{font-size:10px;color:var(--dim2);text-transform:uppercase;letter-spacing:.12em;margin-top:2px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:22px 18px}
-.stat .k{font-size:10.5px;color:var(--dim2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.ring .p{font-family:var(--mono);font-size:30px;font-weight:500;letter-spacing:-.02em}
+.ring .c{font-size:9.5px;color:var(--dim2);text-transform:uppercase;letter-spacing:.12em;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));gap:22px 16px}
+.stat .k{font-size:10px;color:var(--dim2);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
 .stat .v{font-family:var(--mono);font-size:21px;font-weight:500;letter-spacing:-.01em}
-.stat .v small{font-size:12px;color:var(--dim2);font-weight:400;margin-left:2px}
+.stat .v small{font-size:12px;color:var(--dim2);font-weight:400}
 
-/* ---------- status banner ---------- */
 .status{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;
-  padding:15px 20px;margin-bottom:30px;background:var(--card);font-size:14px}
+  padding:15px 20px;margin-bottom:16px;background:var(--card);font-size:14px}
 .status .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.status b{font-weight:600}
-.status .tail{margin-left:auto;color:var(--dim2);font-size:12.5px;font-family:var(--mono)}
+.status .tail{margin-left:auto;color:var(--dim2);font-size:12px;font-family:var(--mono)}
 
-/* ---------- sections ---------- */
-h2{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim2);
-  font-weight:500;margin:36px 0 14px}
+h2{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim2);font-weight:500;
+  margin:40px 0 6px;display:flex;align-items:center;gap:12px}
+h2 .rule{flex:1;height:1px;background:var(--line)}
+.h2sub{font-size:13px;color:var(--dim);margin-bottom:16px;line-height:1.6}
 
-/* ---------- subjects ---------- */
-.subj{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 20px;margin-bottom:9px}
-.subj .top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.subj .nm{font-weight:600;font-size:15px}
-.subj .cd{font-family:var(--mono);font-size:11px;color:var(--dim2)}
-.subj .gr{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--dim)}
-.subj .gr b{color:var(--fg);font-weight:500}
-.subj .hrs{font-family:var(--mono);font-size:12px;color:var(--dim2);margin-left:14px}
-.bar{height:5px;background:#1c1e25;border-radius:3px;overflow:hidden;margin:12px 0 9px}
-.bar i{display:block;height:100%;border-radius:3px;transition:width .5s ease}
-.subj .note{font-size:12.5px;color:var(--dim);line-height:1.5}
+/* cycle */
+.cyc{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cyc .row{display:grid;grid-template-columns:96px 1fr;gap:18px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.cyc .row:last-child{border-bottom:0}
+.cyc .t{font-family:var(--mono);font-size:12px;color:var(--warn);padding-top:1px}
+.cyc .nm{font-weight:500;font-size:14px}
+.cyc .ds{font-size:12.5px;color:var(--dim);margin-top:3px;line-height:1.5}
 
-/* ---------- cut list ---------- */
-.cut{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--bad);
-  border-radius:10px;padding:18px 22px}
-.cut p{font-size:13px;color:var(--dim);margin-bottom:12px;line-height:1.6}
-.cut ul{list-style:none;font-size:13px;color:var(--dim);line-height:1.65}
-.cut li{padding-left:16px;position:relative;margin-bottom:7px}
-.cut li::before{content:'—';position:absolute;left:0;color:var(--dim2)}
+/* clusters */
+.cl{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:8px}
+.cl .hd{display:flex;align-items:baseline;gap:10px;margin-bottom:11px}
+.cl .nm{font-weight:600;font-size:14.5px}
+.cl .cd{font-family:var(--mono);font-size:11px;color:var(--dim2)}
+.cl .ct{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim2)}
+.cl .nt{font-size:12.5px;color:var(--dim);margin-bottom:11px}
+.cl ol{list-style:none;counter-reset:c}
+.cl li{counter-increment:c;font-size:13.5px;padding:5px 0 5px 30px;position:relative;color:var(--fg)}
+.cl li::before{content:counter(c);position:absolute;left:0;font-family:var(--mono);font-size:11px;
+  color:var(--dim2);top:7px}
+.cl li.done{color:var(--dim2);text-decoration:line-through;text-decoration-color:var(--dim2)}
+.flag{color:var(--bad);font-size:11px;margin-left:5px}
 
-/* ---------- schedule ---------- */
-.wk{margin-bottom:26px}
-.wkh{display:flex;align-items:center;gap:12px;margin-bottom:9px}
-.wkh .t{font-family:var(--mono);font-size:11.5px;color:var(--dim);letter-spacing:.06em}
-.wkh .rule{flex:1;height:1px;background:var(--line)}
+/* map */
+.mp{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:9px;overflow:hidden}
+.mp summary{list-style:none;cursor:pointer;padding:17px 20px;display:flex;align-items:center;gap:12px}
+.mp summary::-webkit-details-marker{display:none}
+.mp .arw{color:var(--dim2);font-size:10px;transition:transform .18s}
+.mp[open] .arw{transform:rotate(90deg)}
+.mp .snm{font-weight:600;font-size:16px}
+.mp .scd{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
+.mp .stag{font-family:var(--mono);font-size:11.5px;color:var(--dim2);font-style:italic}
+.mp .sun{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
+.mp .body{border-top:1px solid var(--line);padding:6px 20px 18px 42px}
+.sec{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;color:var(--ok);
+  text-transform:uppercase;margin:18px 0 10px}
+.tp{padding:11px 0;border-bottom:1px dashed var(--line)}
+.tp:last-child{border-bottom:0}
+.tp .th{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.tp .tn{font-weight:600;font-size:14.5px}
+.badge{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;padding:2.5px 7px;border-radius:5px;font-weight:500}
+.b-DRILL{background:rgba(232,112,95,.15);color:#e8705f}
+.b-COVERAGE{background:rgba(140,144,155,.15);color:var(--dim)}
+.b-BUILT{background:rgba(95,211,168,.15);color:var(--ok)}
+.tp .tf{font-size:12px;color:var(--dim);font-style:italic}
+.tp ul{list-style:none;margin-top:7px}
+.tp li{font-size:13.5px;color:var(--dim);padding:2.5px 0 2.5px 20px;position:relative}
+.tp li::before{content:'└';position:absolute;left:2px;color:var(--dim2);font-family:var(--mono);font-size:11px}
+.tp .inline{font-size:13.5px;color:var(--dim);margin-top:6px;padding-left:20px;position:relative}
+.tp .inline::before{content:'└';position:absolute;left:2px;color:var(--dim2);font-family:var(--mono);font-size:11px}
+.mnote{font-size:12.5px;color:var(--dim2);font-style:italic;margin-top:16px}
+
+/* schedule */
+.wk{margin-bottom:30px}
+.wkh{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
+.wkh .t{font-family:var(--mono);font-size:12px;color:var(--fg);letter-spacing:.05em;font-weight:500}
+.wkh .d{font-size:12.5px;color:var(--dim);font-style:italic}
+.wkh .rule{flex:1;height:1px;background:var(--line);align-self:center}
 .wkh .pc{font-family:var(--mono);font-size:11.5px;color:var(--dim2)}
-.day{display:grid;grid-template-columns:74px 1fr;gap:16px;background:var(--card);
-  border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin-bottom:6px}
-.day.today{border-color:var(--line2);background:var(--card2);box-shadow:inset 2px 0 0 var(--warn)}
-.day.past{opacity:.62}
-.day.done{box-shadow:inset 2px 0 0 var(--ok)}
-.dt{font-family:var(--mono);font-size:12px;color:var(--dim);line-height:1.5;padding-top:2px}
-.dt .d{color:var(--fg);font-weight:500}
-.dt .w{color:var(--dim2);font-size:11px}
-.blocks{display:flex;flex-direction:column;gap:8px;min-width:0}
-.blk{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.45}
-.cb{width:15px;height:15px;border:1.5px solid var(--line2);border-radius:4px;flex-shrink:0;
-  margin-top:2px;display:grid;place-items:center;font-size:10px;color:var(--bg)}
+.day{background:var(--card);border:1px solid var(--line);border-radius:11px;margin-bottom:7px;overflow:hidden}
+.day.today{border-color:var(--warn);background:var(--card2)}
+.day.past{opacity:.6}
+.day.alldone{border-left:2px solid var(--ok)}
+.day.buffer{background:linear-gradient(90deg,rgba(232,198,95,.05),transparent)}
+.day.paper{background:linear-gradient(90deg,rgba(232,112,95,.06),transparent)}
+.dh{display:flex;align-items:center;gap:13px;padding:13px 17px;cursor:pointer;flex-wrap:wrap}
+.dh .dn{font-family:var(--mono);font-size:11px;color:var(--dim2);width:44px;flex-shrink:0}
+.dh .dd{font-family:var(--mono);font-size:12px;color:var(--fg);width:78px;flex-shrink:0}
+.dh .tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.07em;
+  padding:2.5px 7px;border-radius:5px;flex-shrink:0;font-weight:500}
+.dh .lb{font-size:14px;font-weight:500;min-width:0}
+.dh .mn{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim2);flex-shrink:0}
+.dh .ck{font-family:var(--mono);font-size:10.5px;color:var(--ok);flex-shrink:0}
+.day.alldone .dh .lb{color:var(--dim2)}
+.dbody{border-top:1px solid var(--line);padding:12px 17px 14px 17px}
+.focus{font-size:12.5px;color:var(--dim);line-height:1.55;margin-bottom:11px;font-style:italic}
+.blk{display:flex;align-items:flex-start;gap:10px;padding:5px 0;font-size:13px}
+.cb{width:15px;height:15px;border:1.5px solid var(--line2);border-radius:4px;flex-shrink:0;margin-top:2px;
+  display:grid;place-items:center;font-size:10px;color:var(--bg)}
 .cb.on{background:var(--ok);border-color:var(--ok)}
 .cb.on::after{content:'✓';font-weight:700;line-height:1}
-.blk .tag{font-family:var(--mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;
-  padding:2.5px 6px;border-radius:4px;flex-shrink:0;margin-top:1px;font-weight:500}
-.blk .lb{flex:1;min-width:0}
-.blk.done .lb{color:var(--dim2);text-decoration:line-through;text-decoration-color:var(--dim2)}
-.blk .dd{font-family:var(--mono);font-size:10.5px;color:var(--ok);flex-shrink:0;margin-top:2px}
-.exam{background:linear-gradient(90deg,rgba(232,112,95,.13),transparent);border:1px solid #3a2724;
-  border-radius:10px;padding:16px 18px;display:flex;align-items:center;gap:14px;margin-top:14px}
+.blk .bm{font-family:var(--mono);font-size:10.5px;color:var(--warn);width:42px;flex-shrink:0;margin-top:2px}
+.blk .bn{font-weight:500}
+.blk .bd{font-size:12px;color:var(--dim2);margin-top:2px}
+.blk.done .bn{color:var(--dim2);text-decoration:line-through;text-decoration-color:var(--dim2)}
+.blk .bdd{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--ok);flex-shrink:0;margin-top:3px}
+.rest{display:flex;align-items:center;gap:12px;padding:9px 17px;margin-bottom:7px;
+  font-family:var(--mono);font-size:11.5px;color:var(--dim2);
+  border:1px dashed var(--line);border-radius:11px}
+.ckpt{background:linear-gradient(90deg,rgba(95,211,168,.1),transparent);border:1px solid #22392f;
+  border-radius:11px;padding:13px 17px;margin-bottom:7px;font-size:13px}
+.ckpt b{color:var(--ok)}
+.exam{background:linear-gradient(90deg,rgba(232,112,95,.14),transparent);border:1px solid #3a2724;
+  border-radius:11px;padding:17px 20px;display:flex;align-items:center;gap:15px;margin-top:16px;flex-wrap:wrap}
 .exam .n{font-family:var(--mono);font-size:12px;color:var(--bad);font-weight:500}
-.exam .t{font-size:13.5px;font-weight:600}
+.exam .t{font-size:14px;font-weight:600}
 .exam .s{font-size:12.5px;color:var(--dim);margin-left:auto}
 
-footer{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);
-  font-size:12px;color:var(--dim2);line-height:1.7}
+.drop{background:var(--card);border:1px solid var(--line);border-left:2px solid var(--warn);
+  border-radius:10px;padding:18px 22px}
+.drop ol{list-style:none;counter-reset:d;font-size:13.5px;color:var(--dim);line-height:1.6}
+.drop li{counter-increment:d;padding:5px 0 5px 26px;position:relative}
+.drop li::before{content:counter(d) '.';position:absolute;left:0;font-family:var(--mono);
+  font-size:11px;color:var(--dim2);top:7px}
+.never{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--dim)}
+.never b{color:var(--bad);font-weight:600}
+.never span{color:var(--fg)}
+
+footer{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);font-size:12px;color:var(--dim2);line-height:1.75}
 footer code{font-family:var(--mono);background:var(--card2);padding:1.5px 5px;border-radius:4px;color:var(--dim)}
-@media(max-width:640px){
-  body{padding:22px 14px 60px}
+footer a{color:var(--dim)}
+@media(max-width:680px){
+  body{padding:22px 13px 60px}
   .stats{grid-template-columns:1fr;justify-items:center;text-align:center;gap:22px}
   .grid{width:100%}
-  .day{grid-template-columns:1fr;gap:9px}
-  .dt{display:flex;gap:8px;align-items:baseline}
   header{flex-direction:column}.countdown{text-align:left}
+  .dh .dn{display:none}.dh .lb{flex-basis:100%;order:5}
+  .mp .body{padding-left:20px}
+  .cyc .row{grid-template-columns:1fr;gap:3px}
 }
 </style>
 </head>
@@ -123,162 +181,205 @@ footer code{font-family:var(--mono);background:var(--card2);padding:1.5px 5px;bo
 <div class="wrap">
   <header>
     <div>
-      <h1>A-Level Prelim Run-In</h1>
+      <h1>Six-Week Study Plan — Prelim Run</h1>
       <div class="sub" id="hsub"></div>
     </div>
-    <div class="countdown">
-      <div class="n" id="cd">—</div>
-      <div class="l" id="cdl">days to prelim p1</div>
-    </div>
+    <div class="countdown"><div class="n" id="cd">—</div><div class="l" id="cdl">days to prelim</div></div>
   </header>
 
+  <div class="callout"><div class="k">Target</div><p id="mTarget"></p></div>
+  <div class="callout"><div class="k">Reality</div><p id="mReality"></p></div>
+
   <div class="stats">
-    <div class="ring" id="ring">
-      <div class="v"><div class="p" id="pct">0%</div><div class="c">complete</div></div>
-    </div>
+    <div class="ring" id="ring"><div class="v"><div class="p" id="pct">0%</div><div class="c">complete</div></div></div>
     <div class="grid">
       <div class="stat"><div class="k">Hours done</div><div class="v"><span id="hd">0</span><small id="hdT"></small></div></div>
-      <div class="stat"><div class="k">Hours expected</div><div class="v" id="he">0</div></div>
+      <div class="stat"><div class="k">Expected by now</div><div class="v" id="he">0</div></div>
       <div class="stat"><div class="k">Delta</div><div class="v" id="dl">—</div></div>
-      <div class="stat"><div class="k">Study days left</div><div class="v" id="dleft">—</div></div>
-      <div class="stat"><div class="k">Blocks closed</div><div class="v"><span id="bd">0</span><small id="bdT"></small></div></div>
+      <div class="stat"><div class="k">Days left</div><div class="v" id="dleft">—</div></div>
+      <div class="stat"><div class="k">Clusters drilled</div><div class="v"><span id="cdone">0</span><small id="cT"></small></div></div>
     </div>
   </div>
+  <div class="status" id="status"><div class="dot"></div><div id="stxt"></div><div class="tail" id="stail"></div></div>
 
-  <div class="status" id="status">
-    <div class="dot"></div><div id="stxt"></div><div class="tail" id="stail"></div>
-  </div>
+  <h2>⏱ The Standard Cluster Cycle<span class="rule"></span></h2>
+  <div class="h2sub">This is the unit the whole plan is built from. One cluster, one day. Run this unless the day says otherwise.</div>
+  <div class="cyc" id="cyc"></div>
 
-  <h2>Subjects — hours allocated by score gap</h2>
-  <div id="subs"></div>
+  <h2>📚 The ~25 clusters we're drilling<span class="rule"></span></h2>
+  <div class="h2sub">Chosen because each is high-frequency <em>and</em> a foundation the A-level reuses. Everything not on this list is coverage-skim only for the prelim.<br>
+    Gap clusters are generated live as you test — they're not listed here because they depend on what you miss.</div>
+  <div id="clusters"></div>
 
-  <h2>What this plan deliberately does not cover</h2>
-  <div class="cut">
-    <p>156 hours cannot cover a ~247-cluster syllabus. Rather than spread thin and close nothing,
-       these are cut on purpose. Prelims are a diagnostic — they will expose exactly this list, and that is the point.</p>
-    <ul id="cutlist"></ul>
-  </div>
+  <h2>🗺 The map — big topic ▸ subtopic ▸ sub-clusters<span class="rule"></span></h2>
+  <div class="h2sub">The full hierarchy behind the calendar. Concept-by-concept detail lives in <code style="font-family:var(--mono)">STUDY_MAP.md</code>.</div>
+  <div id="map"></div>
 
-  <h2>The 39 days</h2>
+  <h2>🗓 The day-by-day schedule<span class="rule"></span></h2>
+  <div class="h2sub">Rest day = Sunday. Click any day to open its blocks. The sequence matters more than the exact dates.</div>
   <div id="sched"></div>
 
+  <h2>Falling behind? The drop order<span class="rule"></span></h2>
+  <div class="drop">
+    <ol id="droplist"></ol>
+    <div class="never"><b>Never drop:</b> <span id="neverlist"></span> These carry the grade.</div>
+  </div>
+
   <footer>
-    Progress is hours-weighted, not task-counted — a 4-hour timed paper counts more than a 2-hour block.
-    <em>Expected</em> = hours scheduled on every day up to and including today.<br>
-    Ethan reports what he completed; boxes and completion dates are written into <code>plan.js</code> and pushed to git.
-    Anyone can fork the repo and open a PR. <span id="lu"></span>
+    Progress is <b>minutes-weighted</b>, not day-counted. <em>Expected</em> = minutes scheduled on every study day up to and including today; Sundays are excluded.<br>
+    Ethan reports what he completed; boxes and completion dates are written into <code>plan.js</code> and pushed. Anyone can fork and open a PR.
+    <span id="lu"></span>
   </footer>
 </div>
 
 <script src="plan.js"></script>
 <script>
 (function(){
-  const P = window.PLAN, S = P.subjects, M = P.meta;
-  const today = new Date().toISOString().slice(0,10);
+  const P=window.PLAN, S=P.subjects, M=P.meta;
+  const today=new Date().toISOString().slice(0,10);
+  const h=m=>(m/60);
+  const fmt=m=>{const x=h(m); return (Math.round(x*10)/10).toString();};
 
-  // ---- core numbers (hours-weighted) ----
-  let doneH=0, expH=0, totH=0, doneB=0, totB=0;
-  const perSub={};
-  for(const k in S) perSub[k]={done:0,tot:0};
+  // ---- numbers (minutes-weighted) ----
+  let doneM=0, expM=0, totM=0;
+  P.days.forEach(d=>d.blocks.forEach(b=>{
+    totM+=b.mins; if(b.done)doneM+=b.mins; if(d.date<=today)expM+=b.mins;
+  }));
+  const pct=totM?doneM/totM:0, deltaH=Math.round((doneM-expM)/60*10)/10;
+  const daysLeft=P.days.filter(d=>d.date>=today).length;
+  const cdDays=Math.max(0,Math.round((new Date(M.prelim)-new Date(today))/864e5));
+  // a cluster is drilled when its standard day is fully done, or (GP skills) its buffer block is done
+  const doneClusters=new Set();
   P.days.forEach(d=>{
-    d.blocks.forEach(b=>{
-      totH+=b.hours; totB++; perSub[b.subject].tot+=b.hours;
-      if(b.done){doneH+=b.hours; doneB++; perSub[b.subject].done+=b.hours;}
-      if(d.date<=today) expH+=b.hours;
-    });
+    if(d.clusterRef && d.blocks.every(b=>b.done)) doneClusters.add(d.clusterRef);
+    d.blocks.forEach(b=>{ if(b.clusterRef && b.done) doneClusters.add(b.clusterRef); });
   });
-  const pct = totH? doneH/totH : 0;
-  const delta = doneH-expH;
-  const daysLeft = P.days.filter(d=>d.date>=today).length;
-  const cdDays = Math.max(0, Math.round((new Date(M.examDay)-new Date(today))/864e5));
+  const clustersDone=doneClusters.size, clustersTot=P.clusters.length;
 
-  // ---- header ----
-  document.getElementById('hsub').innerHTML =
-    `${M.student} · ${M.studyDays} study days · ${M.dailyHours} hrs/day · ${M.totalHours} hours total
-     <span class="mono">${M.start} → ${M.lastStudyDay}</span>`;
-  document.getElementById('cd').textContent = cdDays;
-  document.getElementById('cdl').textContent = cdDays===0 ? M.examLabel+' today' : 'days to prelim p1';
-  document.getElementById('lu').textContent = 'Last updated '+M.lastUpdated+'.';
+  document.getElementById('hsub').innerHTML=
+    `${M.student} · ${M.studyDays} study days · ~4 hrs/day · 6 days/week (rest ${M.restDay}) · ~${M.perWeekHrs} hrs/week
+     <span class="mono">${M.start} → ${M.end}</span>`;
+  document.getElementById('cd').textContent=cdDays;
+  document.getElementById('cdl').textContent=cdDays===0?'prelim today':'days to prelim';
+  document.getElementById('mTarget').innerHTML=M.target;
+  document.getElementById('mReality').innerHTML=M.reality;
+  document.getElementById('lu').textContent='Last updated '+M.lastUpdated+'.';
 
-  // ---- ring (same thresholds as the status banner) ----
-  const deg = Math.round(pct*360);
-  const col = delta>=-2 ? 'var(--ok)' : (delta<-12 ? 'var(--bad)' : 'var(--warn)');
-  document.getElementById('ring').style.background =
-    `conic-gradient(${col} ${deg}deg, #1c1e25 ${deg}deg)`;
-  document.getElementById('pct').textContent = Math.round(pct*100)+'%';
-  document.getElementById('hd').textContent = doneH;
-  document.getElementById('hdT').textContent = '/'+totH;
-  document.getElementById('he').textContent = expH;
-  document.getElementById('bd').textContent = doneB;
-  document.getElementById('bdT').textContent = '/'+totB;
-  document.getElementById('dleft').textContent = daysLeft;
+  const col = deltaH>=-1 ? 'var(--ok)' : (deltaH<-8 ? 'var(--bad)' : 'var(--warn)');
+  document.getElementById('ring').style.background=`conic-gradient(${col} ${Math.round(pct*360)}deg, #1c1e25 0)`;
+  document.getElementById('pct').textContent=Math.round(pct*100)+'%';
+  document.getElementById('hd').textContent=fmt(doneM);
+  document.getElementById('hdT').textContent='/'+fmt(totM)+'h';
+  document.getElementById('he').textContent=fmt(expM)+'h';
+  document.getElementById('dleft').textContent=daysLeft;
+  document.getElementById('cdone').textContent=clustersDone;
+  document.getElementById('cT').textContent='/'+clustersTot;
   const dEl=document.getElementById('dl');
-  dEl.textContent = (delta>0?'+':'')+delta+'h';
-  dEl.style.color = delta>=0?'var(--ok)':(delta<-12?'var(--bad)':'var(--warn)');
+  dEl.textContent=(deltaH>0?'+':'')+deltaH+'h';
+  dEl.style.color=col;
 
-  // ---- status banner ----
-  let txt, dot;
-  if(doneH===0 && expH===0){ txt='<b>Not started.</b> First block is the Biology diagnostic on '+M.start+'.'; dot='var(--dim2)'; }
-  else if(delta>=2){ txt='<b>Ahead.</b> '+delta+' hours in front of schedule.'; dot='var(--ok)'; }
-  else if(delta>=-2){ txt='<b>On track.</b> Within '+Math.abs(delta)+' hours of schedule.'; dot='var(--ok)'; }
-  else if(delta>=-12){ txt='<b>Slipping.</b> '+Math.abs(delta)+' hours behind — recoverable inside a week.'; dot='var(--warn)'; }
-  else { txt='<b>Behind.</b> '+Math.abs(delta)+' hours down. At 4 hrs/day that is '
-         +(Math.abs(delta)/4).toFixed(1)+' full days lost. Cut scope or add hours.'; dot='var(--bad)'; }
-  document.getElementById('stxt').innerHTML = txt;
-  document.getElementById('status').querySelector('.dot').style.background = dot;
-  document.getElementById('status').style.borderColor = dot==='var(--dim2)'?'var(--line)':dot;
-  document.getElementById('stail').textContent = daysLeft+' days · '+(totH-doneH)+'h remaining';
+  let txt,dot;
+  if(doneM===0&&expM===0){txt='<b>Not started.</b> Day 1 is Vectors — Basics, Products & Ratio Theorem.';dot='var(--dim2)';}
+  else if(deltaH>=1){txt='<b>Ahead.</b> '+deltaH+' hours in front of schedule.';dot='var(--ok)';}
+  else if(deltaH>=-1){txt='<b>On track.</b> Within an hour of schedule.';dot='var(--ok)';}
+  else if(deltaH>=-8){txt='<b>Slipping.</b> '+Math.abs(deltaH)+' hours behind — one buffer day recovers this.';dot='var(--warn)';}
+  else{txt='<b>Behind.</b> '+Math.abs(deltaH)+' hours down — that is '+(Math.abs(deltaH)/3.83).toFixed(1)+
+       ' full days. Use the drop order.';dot='var(--bad)';}
+  document.getElementById('stxt').innerHTML=txt;
+  const st=document.getElementById('status');
+  st.querySelector('.dot').style.background=dot;
+  st.style.borderColor=(dot==='var(--dim2)')?'var(--line)':dot;
+  document.getElementById('stail').textContent=daysLeft+' days · '+fmt(totM-doneM)+'h remaining';
 
-  // ---- subjects ----
-  document.getElementById('subs').innerHTML = Object.entries(S).map(([k,s])=>{
-    const p = perSub[k].tot ? perSub[k].done/perSub[k].tot : 0;
-    return `<div class="subj">
-      <div class="top">
-        <span class="nm">${s.name}</span><span class="cd">${s.code}</span>
-        <span class="gr">now <b>${s.standing}</b> → target <b>${s.target}</b></span>
-        <span class="hrs">${perSub[k].done}/${s.hours}h</span>
-      </div>
-      <div class="bar"><i style="width:${(p*100).toFixed(1)}%;background:${s.colour}"></i></div>
-      <div class="note">${s.note}</div>
-    </div>`;
-  }).join('');
+  // ---- cycle ----
+  document.getElementById('cyc').innerHTML=P.cycle.map(c=>
+    `<div class="row"><div class="t">${c.mins} min</div>
+     <div><div class="nm">${c.name}</div><div class="ds">${c.desc}</div></div></div>`).join('');
 
-  document.getElementById('cutlist').innerHTML = P.cut.map(c=>`<li>${c}</li>`).join('');
+  // ---- clusters (grouped) ----
+  const order=['maths','chem','csc','bio','gp'];
+  document.getElementById('clusters').innerHTML=order.map(k=>{
+    const s=S[k], list=P.clusters.filter(c=>c.subject===k);
+    const nd=list.filter(c=>doneClusters.has(c.name)).length;
+    return `<div class="cl" style="border-left:2px solid ${s.colour}">
+      <div class="hd"><span class="nm">${s.full}</span><span class="cd">${s.code}</span>
+        <span class="ct">${nd}/${list.length} drilled</span></div>
+      <div class="nt">${s.note}</div>
+      <ol>${list.map(c=>`<li class="${doneClusters.has(c.name)?'done':''}">${c.name}${c.flag?`<span class="flag">${c.flag}</span>`:''}</li>`).join('')}</ol>
+    </div>`;}).join('');
+
+  // ---- map ----
+  document.getElementById('map').innerHTML=order.map((k,i)=>{
+    const s=S[k], m=P.map[k];
+    return `<details class="mp" ${i===0?'open':''}>
+      <summary><span class="arw">▶</span><span class="snm" style="color:${s.colour}">${s.full}</span>
+        <span class="scd">${s.code.split(' ')[0]}</span><span class="stag">· ${m.tag}</span>
+        <span class="sun">${m.units}</span></summary>
+      <div class="body">
+        ${m.sections.map(sec=>`
+          <div class="sec">${sec.name}</div>
+          ${sec.topics.map(t=>`<div class="tp">
+            <div class="th"><span class="tn">${t.n}</span>
+              <span class="badge b-${t.b}">${t.b==='BUILT'?'✓ BUILT':t.b==='DRILL'?'◎ DRILL':'👁 COVER'}</span>
+              ${t.f?`<span class="tf">⚑ ${t.f}</span>`:''}</div>
+            ${t.subs.length? (t.subs.length>3
+                ? `<ul>${t.subs.map(x=>`<li>${x}</li>`).join('')}</ul>`
+                : `<div class="inline">${t.subs.join(' · ')}</div>`) : ''}
+          </div>`).join('')}`).join('')}
+        ${m.note?`<div class="mnote">${m.note}</div>`:''}
+      </div></details>`;}).join('');
 
   // ---- schedule ----
-  const weeks={};
-  P.days.forEach(d=>{ (weeks[d.week] ||= []).push(d); });
+  const CKPT={21:'<b>🏁 End-July checkpoint.</b> The load-bearing spine of every subject is now drilled.',
+              27:'<b>Content phase ends here.</b> Nothing new after today — only papers and gap-closure.'};
+  const byWeek={}; P.days.forEach(d=>(byWeek[d.week]||=[]).push(d));
+  const MO=['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'];
   let html='';
-  for(const w in weeks){
-    const ds=weeks[w];
-    const wh=ds.reduce((a,d)=>a+d.blocks.reduce((x,b)=>x+b.hours,0),0);
-    const wd=ds.reduce((a,d)=>a+d.blocks.reduce((x,b)=>x+(b.done?b.hours:0),0),0);
-    html+=`<div class="wk"><div class="wkh">
-      <span class="t">WEEK ${w}</span><span class="rule"></span>
-      <span class="pc">${wd}/${wh}h</span></div>`;
+  P.bounds.forEach(([w,a,b])=>{
+    const ds=byWeek[w]||[];
+    const wm=ds.reduce((x,d)=>x+d.mins,0), wd=ds.reduce((x,d)=>x+d.blocks.reduce((y,z)=>y+(z.done?z.mins:0),0),0);
+    const r0=ds[0].date, r1=ds[ds.length-1].date;
+    const lbl=(s)=>{const[,mo,dy]=s.split('-');return +dy+' '+MO[+mo];};
+    html+=`<div class="wk"><div class="wkh"><span class="t">▶ WEEK ${w} · ${lbl(r0)}–${lbl(r1)}</span>
+      <span class="d">${P.weekTitles[w]}</span><span class="rule"></span>
+      <span class="pc">${fmt(wd)}/${fmt(wm)}h</span></div>`;
     ds.forEach(d=>{
-      const allDone=d.blocks.every(b=>b.done);
-      const cls=[d.date===today?'today':'', d.date<today?'past':'', allDone?'done':''].filter(Boolean).join(' ');
+      const s=S[d.subject], all=d.blocks.every(x=>x.done), any=d.blocks.some(x=>x.done);
       const [,mo,dy]=d.date.split('-');
-      html+=`<div class="day ${cls}">
-        <div class="dt"><span class="d">${dy} ${['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'][+mo]}</span>
-          <span class="w">${d.weekday}</span></div>
-        <div class="blocks">${d.blocks.map(b=>{
-          const s=S[b.subject];
-          return `<div class="blk ${b.done?'done':''}">
+      const cls=['day',d.type,d.date===today?'today':'',d.date<today?'past':'',all?'alldone':''].filter(Boolean).join(' ');
+      const nDone=d.blocks.filter(x=>x.done).length;
+      html+=`<details class="${cls}" ${d.date===today?'open':''}>
+        <summary class="dh">
+          <span class="dn">DAY ${d.n}</span>
+          <span class="dd">${d.weekday} ${+dy} ${MO[+mo]}</span>
+          <span class="tag" style="background:${s.colour}1f;color:${s.colour}">${d.type==='standard'?s.name:d.type}</span>
+          <span class="lb">${d.label}${d.flag?`<span class="flag">${d.flag}</span>`:''}</span>
+          ${all?'<span class="ck">✓ done</span>':(any?`<span class="ck">${nDone}/${d.blocks.length}</span>`:'')}
+          <span class="mn">${fmt(d.mins)}h</span>
+        </summary>
+        <div class="dbody">
+          ${d.focus?`<div class="focus">${d.focus}</div>`:''}
+          ${d.blocks.map(b=>`<div class="blk ${b.done?'done':''}">
             <span class="cb ${b.done?'on':''}"></span>
-            <span class="tag" style="background:${s.colour}1f;color:${s.colour}">${b.subject}</span>
-            <span class="lb">${b.label}</span>
-            ${b.doneDate?`<span class="dd">${b.doneDate}</span>`:''}
-          </div>`;}).join('')}</div>
-      </div>`;
+            <span class="bm">${b.mins}m</span>
+            <span><span class="bn">${b.name}</span>${b.desc?`<div class="bd">${b.desc}</div>`:''}</span>
+            ${b.doneDate?`<span class="bdd">${b.doneDate}</span>`:''}
+          </div>`).join('')}
+        </div></details>`;
+      if(CKPT[d.n]) html+=`<div class="ckpt">${CKPT[d.n]}</div>`;
+      const nxt=new Date(d.date+'T00:00:00Z'); nxt.setUTCDate(nxt.getUTCDate()+1);
+      const ns=nxt.toISOString().slice(0,10);
+      if(P.rest.includes(ns)){const[,m2,d2]=ns.split('-');
+        html+=`<div class="rest">☾ &nbsp;Sun ${+d2} ${MO[+m2]} — rest</div>`;}
     });
     html+='</div>';
-  }
-  html+=`<div class="exam"><span class="n">18 AUG</span>
-    <span class="t">${M.examLabel}</span>
-    <span class="s">Prelims begin. Diagnostic — the real target is November.</span></div>`;
+  });
+  html+=`<div class="exam"><span class="n">21 AUG +</span><span class="t">${M.prelimLabel}</span>
+    <span class="s">If your prelim lands earlier, cut buffer days first, then the lowest-priority clusters.</span></div>`;
   document.getElementById('sched').innerHTML=html;
+
+  document.getElementById('droplist').innerHTML=P.drop.map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('neverlist').textContent=P.never.join(' · ')+'.';
 })();
 </script>
 </body>
